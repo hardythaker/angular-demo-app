@@ -1,0 +1,31 @@
+.mySideNav {
+  background: white;
+  font-size: 1.6rem;
+  border-radius: 5px;
+}
+.card {
+  border-color: transparent;
+  transition: all 0.3s linear;
+}
+.card-footer {
+  background: transparent;
+  border-top: transparent;
+  transition: all 0.3s linear;
+}
+.img-container {
+  position: relative;
+  overflow: hidden;
+}
+.card-img-top {
+  transition: all 0.3s linear;
+}
+.img-container:hover .card-img-top {
+  transform: scale(1.2);
+}
+.cart-btn {
+  border-radius: 0.5rem;
+}
+.img-container:hover {
+  border: 0.04rem solid rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+}

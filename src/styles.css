@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+div {
+  border: 0px solid black;
+}
+body {
+  margin: 0;
+  font-family: "Oswald";
+  background: linear-gradient(to left, #ff442b, #ff933a);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.text-title {
+  font-family: "Permanent Marker", cursive;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  color: whitesmoke;
+}

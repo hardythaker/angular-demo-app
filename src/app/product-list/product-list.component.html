@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-4">
+      <ul class="nav flex-column m-3 mySideNav">
+        <li class="nav-item p-2">
+          <a class="dropdown-item" (click)="filterProducts('allproducts')"
+            >All Products</a
+          >
+        </li>
+        <li class="nav-item p-2">
+          <a class="dropdown-item" (click)="filterProducts('nuts')">Nuts</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="dropdown-item" (click)="filterProducts('darkchocolate')"
+            >Dark Chocolates</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="row justify-content-center">
+        <!-- Card -->
+        <div
+          class="my-3 col-sm-6 col-md-4 col-lg-3"
+          style="max-width: 24rem"
+          *ngFor="let product of filteredProducts"
+        >
+          <div class="card img-container">
+            <img
+              class="card-img-top"
+              src="{{ product.img }}"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <div class="d-flex">
+                <h5 class="card-title">{{ product.title }}</h5>
+                <h5 class="card-text ml-auto">
+                  {{ " " + product.price | currency: "INR" }}
+                </h5>
+              </div>
+              <button
+                (click)="addToCart(product)"
+                class="btn btn-primary .cart-btn"
+                [class.btn-light]="product.inCart"
+                style="font-size: large"
+              >
+                <p *ngIf="product.inCart; else elseBlock" class="mb-0">
+                  In cart
+                </p>
+                <ng-template #elseBlock>
+                  <p class="mb-0">Add to cart</p>
+                </ng-template>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- card -->
+      </div>
+    </div>
+  </div>
+</div>

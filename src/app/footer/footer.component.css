@@ -1,0 +1,11 @@
+.sticky-footer {
+  background-color: #fff;
+  font-family: "Permanent Marker";
+  font-size: x-large;
+  color: #232528;
+  padding-top: 5px;
+  /* position: absolute; */
+  padding-bottom: 5px;
+  bottom: 0;
+  width: 100%;
+}

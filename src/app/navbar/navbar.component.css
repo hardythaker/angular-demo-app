@@ -1,0 +1,13 @@
+.myNav {
+  background: white;
+  border-radius: 2rem;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  outline: none;
+  margin: 0.25rem;
+  border-radius: 2rem;
+  background: transparent;
+}
