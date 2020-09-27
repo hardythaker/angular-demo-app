@@ -13,6 +13,9 @@ import { CartComponent } from './cart/cart/cart.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartColumnsComponent } from './cart-columns/cart-columns.component';
+import { ShippingDetailComponent } from './shipping-detail/shipping-detail.component';
+import { FormsModule } from '@angular/forms';
+import { OrderPlacedComponent } from './order-placed/order-placed.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +29,10 @@ import { CartColumnsComponent } from './cart-columns/cart-columns.component';
     NotFoundComponent,
     ProductDetailsComponent,
     CartColumnsComponent,
+    ShippingDetailComponent,
+    OrderPlacedComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

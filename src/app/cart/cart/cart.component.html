@@ -7,7 +7,7 @@
         </h1>
       </div>
     </div>
-    <div class="bg-white bg-white mx-5 p-5">
+    <div class="bg-white bg-white mx-5 p-5" style="border-radius: 10px">
       <p class="p-1">You have {{ cartProducts.length }} products in the cart</p>
       <button
         class="btn btn-outline-danger text-uppercase mb-3 px-5"
@@ -100,7 +100,12 @@
                 <i class="fas fa-rupee-sign"></i> {{ cartTotal }}
               </strong>
             </h5>
-            <button class="btn btn-success py-2 px-4">Check Out</button>
+            <button
+              class="btn btn-success py-2 px-4"
+              routerLink="shipping-details"
+            >
+              Check Out
+            </button>
           </div>
         </div>
       </div>

@@ -1,0 +1,248 @@
+<form #f="ngForm">
+  <div class="container">
+    <div class="row bg-white p-5 my-5" style="border-radius: 10px">
+      <div class="col-8">
+        <div ngModelGroup="Shipping">
+          <div class="row">
+            <div class="col">
+              <h3>Shipping address</h3>
+            </div>
+          </div>
+          <div class="row p-1 form-group">
+            <div class="col">
+              <label for="firstName">First name*</label>
+              <input
+                required
+                ngModel
+                #firstName="ngModel"
+                type="text"
+                id="firstName"
+                name="firstName"
+                class="form-control"
+              />
+              <p
+                class="alert alert-danger"
+                *ngIf="!firstName.valid && firstName.touched"
+              >
+                First name is required
+              </p>
+            </div>
+            <div class="col">
+              <label for="lastName">Last name</label>
+              <input
+                ngModel
+                type="text"
+                id="lastName"
+                name="lastName"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="row p-1 form-group">
+            <div class="col">
+              <label for="address">Address</label>
+              <input
+                ngModel
+                type="text"
+                name="address"
+                id="address"
+                class="form-control"
+                placeholder="1234 Main St"
+              />
+            </div>
+          </div>
+          <div class="row p-1 form-group">
+            <div class="col">
+              <label for="address2">Address 2 (Optional)</label>
+              <input
+                ngModel
+                type="text"
+                name="address2"
+                class="form-control"
+                id="address2"
+                placeholder="Apartment or Suite"
+              />
+            </div>
+          </div>
+          <div class="row p-1 form-group">
+            <div class="col-5">
+              <label for="city">City</label>
+              <select ngModel name="city" id="city" class="form-control">
+                <option class="dropdown-item">Mumbai</option>
+                <option class="dropdown-item">Pune</option>
+              </select>
+            </div>
+            <div class="col-4">
+              <label for="state">State</label>
+              <select ngModel name="state" id="state" class="form-control">
+                <option class="dropdown-item">Maharashtra</option>
+              </select>
+            </div>
+            <div class="col-3">
+              <label for="zip">Zip</label>
+              <input
+                ngModel
+                type="text"
+                id="text"
+                name="text"
+                class="form-control"
+              />
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div ngModelGroup="Billing">
+          <div class="row">
+            <div class="col"><h3>Billing address</h3></div>
+          </div>
+          <div class="row p-1 form-group">
+            <div class="col">
+              <label for="b-firstName">First name</label>
+              <input
+                ngModel
+                type="text"
+                id="b-firstName"
+                name="b-firstName"
+                class="form-control"
+              />
+            </div>
+
+            <div class="col">
+              <label for="b-lastName">Last name</label>
+              <input
+                ngModel
+                type="text"
+                id="b-lastName"
+                name="b-lastName"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="row p-1 form-group">
+            <div class="col">
+              <label for="b-address">Address</label>
+              <input
+                ngModel
+                type="text"
+                name="b-address"
+                id="b-address"
+                class="form-control"
+                placeholder="1234 Main St"
+              />
+            </div>
+          </div>
+          <div class="row p-1 form-group">
+            <div class="col">
+              <label for="b-address2">Address 2 (Optional)</label>
+              <input
+                ngModel
+                type="text"
+                name="b-address2"
+                class="form-control"
+                id="b-address2"
+                placeholder="Apartment or Suite"
+              />
+            </div>
+          </div>
+          <div class="row p-1 form-group">
+            <div class="col-5">
+              <label for="b-city">City</label>
+              <select ngModel name="b-city" id="b-city" class="form-control">
+                <option class="dropdown-item">Mumbai</option>
+                <option class="dropdown-item">Pune</option>
+              </select>
+            </div>
+            <div class="col-4">
+              <label for="b-state">State</label>
+              <select ngModel name="b-state" id="b-state" class="form-control">
+                <option class="dropdown-item">Maharashtra</option>
+              </select>
+            </div>
+            <div class="col-3">
+              <label for="b-zip">Zip</label>
+              <input
+                ngModel
+                type="text"
+                id="b-zip"
+                name="b-zip"
+                class="form-control"
+              />
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div ngModelGroup="Payment">
+          <div class="row">
+            <div class="col">
+              <h3>Payment</h3>
+            </div>
+          </div>
+          <div class="row p-1">
+            <div class="col-2">
+              <label>
+                <input ngModel type="radio" name="paymentOption" value="cc" />
+                Credit Card
+              </label>
+            </div>
+            <div class="col-2">
+              <label>
+                <input ngModel type="radio" name="paymentOption" value="dc" />
+                Debit Card
+              </label>
+            </div>
+          </div>
+          <div class="row p-1">
+            <div class="col">
+              <label for="nameOnCard">Name on card</label>
+              <input
+                ngModel
+                name="nameOnCard"
+                id="nameOnCard"
+                class="form-control"
+              />
+              <p>Full name as displayed on card</p>
+            </div>
+            <div class="col">
+              <label for="cardNumber">Card number</label>
+              <input
+                ngModel
+                name="cardNumber"
+                id="cardNumber"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="row p-1">
+            <div class="col-2">
+              <label for="expiration">Expiration</label>
+              <input
+                ngModel
+                name="expiration"
+                id="expiration"
+                class="form-control"
+              />
+            </div>
+            <div class="col-2">
+              <label for="cvv">CVV</label>
+              <input ngModel name="cvv" id="cvv" class="form-control" />
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="row p-1">
+          <div class="col">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="!f.valid"
+              routerLink="../order-placed"
+              (click)="onSubmit()"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

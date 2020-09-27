@@ -1,6 +1,7 @@
 .myNav {
   background: white;
   border-radius: 2rem;
+  color: orangered;
 }
 
 button {
@@ -10,4 +11,12 @@ button {
   margin: 0.25rem;
   border-radius: 2rem;
   background: transparent;
+}
+.myNavButton {
+  color: orangered;
+  font-size: 1.2rem;
+}
+.nav-link {
+  color: orange;
+  font-size: 1.3rem;
 }

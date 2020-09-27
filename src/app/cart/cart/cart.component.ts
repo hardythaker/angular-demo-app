@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/cart.service';
 import { IProduct } from 'src/app/iproducts';
 import { ProductService } from 'src/services/product.service';
@@ -9,7 +10,11 @@ import { ProductService } from 'src/services/product.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
   cartProducts: IProduct[] = [];
   cartSubTotal = 0;
   cartTax = 0;
@@ -57,5 +62,9 @@ export class CartComponent implements OnInit {
 
   closeConfirmModal() {
     this.modelOpen = false;
+  }
+
+  onClickCheckout() {
+    this.router.navigate(['shipping-details'], { relativeTo: this.route });
   }
 }
