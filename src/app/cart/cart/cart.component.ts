@@ -42,8 +42,17 @@ export class CartComponent implements OnInit {
     this.productService.clearCart();
   }
 
-  openConfirmModal() {
-    this.modelOpen = true;
+  removeAllProducts = false;
+  productToRemove: IProduct = null;
+  openConfirmModal(product?: IProduct) {
+    if (!product) {
+      this.removeAllProducts = true;
+      this.modelOpen = true;
+    } else {
+      this.productToRemove = product;
+      this.removeAllProducts = false;
+      this.modelOpen = true;
+    }
   }
 
   closeConfirmModal() {

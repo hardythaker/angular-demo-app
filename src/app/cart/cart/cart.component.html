@@ -1,114 +1,117 @@
 <div *ngIf="cartProducts.length > 0; else elseBlock">
-  <div class="row">
-    <div class="col-10 mx-auto my-2 text-center text-title">
-      <h1 class="text-capitalize font-weight-bold">
-        Your <strong class="">Cart</strong>
-      </h1>
+  <div style="min-height: 87vh">
+    <div class="row mx-1">
+      <div class="col-10 mx-auto my-2 text-center text-title">
+        <h1 class="text-capitalize font-weight-bold">
+          Your <strong class="">Cart</strong>
+        </h1>
+      </div>
     </div>
-  </div>
-
-  <div class="bg-white bg-white mx-5 p-5">
-    <p class="p-1">You have {{ cartProducts.length }} products in the cart</p>
-    <button
-      class="btn btn-outline-danger text-uppercase mb-3 px-5"
-      type="button"
-      (click)="openConfirmModal()"
-    >
-      Clear Cart
-    </button>
-    <app-cart-columns></app-cart-columns>
-    <!-- CART ITEMS -->
-    <div
-      class="row my-2 text-capitalize text-center"
-      *ngFor="let product of cartProducts"
-    >
-      <div class="col-10 mx-auto col-lg-2">
-        <img
-          src="{{ product.img }}"
-          style="width: 5rem; height: 5rem"
-          class="img-fluid"
-          alt="product"
-        />
-      </div>
-      <div class="col-10 mx-auto col-lg-2">
-        <span class="d-lg-none">Product : </span>
-        {{ product.title }}
-      </div>
-      <div class="col-10 mx-auto col-lg-2">
-        <span class="d-lg-none">Price : </span>
-        {{ product.price }}
-      </div>
-      <div class="col-10 mx-auto col-lg-2">
-        <div class="col-10 mx-auto col-lg-2 my-2 my-lg-0">
-          <div class="d-flex justify-content-center">
-            <div class="d-flex">
-              <span
-                class="btn btn-black mx-1 btn-outline-danger"
-                (click)="decreaseQty(product)"
-              >
-                -
-              </span>
-              <span class="btn btn-black mx-1">
-                {{ product.count }}
-              </span>
-              <span
-                class="btn btn-black btn-outline-success mx-1"
-                (click)="increaseQty(product)"
-              >
-                +
-              </span>
+    <div class="bg-white bg-white mx-5 p-5">
+      <p class="p-1">You have {{ cartProducts.length }} products in the cart</p>
+      <button
+        class="btn btn-outline-danger text-uppercase mb-3 px-5"
+        type="button"
+        (click)="openConfirmModal()"
+      >
+        Clear Cart
+      </button>
+      <app-cart-columns></app-cart-columns>
+      <!-- CART ITEMS -->
+      <div
+        class="row my-2 text-capitalize text-center"
+        *ngFor="let product of cartProducts"
+      >
+        <div class="col-10 mx-auto col-lg-2">
+          <img
+            src="{{ product.img }}"
+            style="width: 5rem; height: 5rem"
+            class="img-fluid"
+            alt="product"
+          />
+        </div>
+        <div class="col-10 mx-auto col-lg-2">
+          <span class="d-lg-none">Product : </span>
+          {{ product.title }}
+        </div>
+        <div class="col-10 mx-auto col-lg-2">
+          <span class="d-lg-none">Price : </span>
+          {{ product.price }}
+        </div>
+        <div class="col-10 mx-auto col-lg-2">
+          <div class="col-10 mx-auto col-lg-2 my-2 my-lg-0">
+            <div class="d-flex justify-content-center">
+              <div class="d-flex">
+                <span
+                  class="btn btn-black mx-1 btn-outline-danger"
+                  (click)="decreaseQty(product)"
+                >
+                  -
+                </span>
+                <span class="btn btn-black mx-1">
+                  {{ product.count }}
+                </span>
+                <span
+                  class="btn btn-black btn-outline-success mx-1"
+                  (click)="increaseQty(product)"
+                >
+                  +
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-10 mx-auto col-lg-2">
-        <div class="cart-icon" (click)="removeProduct(product)">
-          <span class="btn btn-black btn-outline-danger mx-1">
-            <i class="fas fa-trash"></i>
-          </span>
+        <div class="col-10 mx-auto col-lg-2">
+          <div class="cart-icon" (click)="openConfirmModal(product)">
+            <span class="btn btn-black btn-outline-danger mx-1">
+              <i class="fas fa-trash"></i>
+            </span>
+          </div>
+        </div>
+        <div class="col-10 mx-auto col-lg-2">
+          <strong>
+            item total :
+            <i class="fas fa-rupee-sign">
+              {{ product.total }}
+            </i>
+          </strong>
         </div>
       </div>
-      <div class="col-10 mx-auto col-lg-2">
-        <strong>
-          item total :
-          <i class="fas fa-rupee-sign">
-            {{ product.total }}
-          </i>
-        </strong>
-      </div>
-    </div>
-    <!-- /END CART ITEMS/ -->
-    <!-- TOTALS SECTIONS -->
-    <div class="container">
-      <div class="row">
-        <div
-          class="col-10 mt-2 ml-sm-5 ml-md-auto col-sm-8 text-capitalize text-right"
-        >
-          <h5>
-            <span class="">subtotal : </span>
-            <strong>
-              <i class="fas fa-rupee-sign"></i> {{ cartSubTotal }}
-            </strong>
-          </h5>
-          <h5>
-            <span class="">tax : </span>
-            <strong> <i class="fas fa-rupee-sign"></i> {{ cartTax }} </strong>
-          </h5>
-          <h5>
-            <span class="">Total : </span>
-            <strong> <i class="fas fa-rupee-sign"></i> {{ cartTotal }} </strong>
-          </h5>
-          <button class="btn btn-success py-2 px-4">Check Out</button>
+      <!-- /END CART ITEMS/ -->
+      <!-- TOTALS SECTIONS -->
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-10 mt-2 ml-sm-5 ml-md-auto col-sm-8 text-capitalize text-right"
+          >
+            <h5>
+              <span class="">subtotal : </span>
+              <strong>
+                <i class="fas fa-rupee-sign"></i> {{ cartSubTotal }}
+              </strong>
+            </h5>
+            <h5>
+              <span class="">tax : </span>
+              <strong> <i class="fas fa-rupee-sign"></i> {{ cartTax }} </strong>
+            </h5>
+            <h5>
+              <span class="">Total : </span>
+              <strong>
+                <i class="fas fa-rupee-sign"></i> {{ cartTotal }}
+              </strong>
+            </h5>
+            <button class="btn btn-success py-2 px-4">Check Out</button>
+          </div>
         </div>
       </div>
+      <!-- END TOTALS SECTIONS -->
     </div>
-    <!-- END TOTALS SECTIONS -->
   </div>
 </div>
 
 <ng-template #elseBlock>
-  <div class="container mt-5">
-    <div class="row">
+  <div class="container">
+    <div class="row mt-5">
       <div
         class="col-10 mx-auto text-center text-capitalize"
         style="color: whitesmoke"
@@ -126,12 +129,24 @@
         id="cmodal"
         class="col-8 mx-auto col-md-6 col-lg-4 text-center text-capitalize p-5"
       >
-        <h5>Are your sure you want to remove all products?</h5>
+        <h5 *ngIf="removeAllProducts; else singleProduct">
+          Are your sure you want to remove all products?
+        </h5>
+        <ng-template #singleProduct>
+          <h5>Are your sure you want to remove?</h5>
+          <h5>
+            {{ productToRemove.title }} -
+            {{ productToRemove.price | currency: "INR" }}
+          </h5>
+        </ng-template>
         <div>
           <button
             class="px-2 mx-2 btn-danger"
-            (click)="clearCart()"
-            routerLink="/products"
+            (click)="
+              removeAllProducts ? clearCart() : removeProduct(productToRemove);
+              closeConfirmModal()
+            "
+            [routerLink]="removeAllProducts ? ['/products'] : []"
           >
             Yes
           </button>
